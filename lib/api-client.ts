@@ -1,0 +1,26 @@
+import type { Question, Response } from './types'
+
+export async function getQuestions(): Promise<Question[]> {
+  const res = await fetch('/api/questions')
+  if (!res.ok) throw new Error('Failed to fetch questions')
+  return res.json()
+}
+
+export async function getResponses(): Promise<Response[]> {
+  const res = await fetch('/api/responses')
+  if (!res.ok) throw new Error('Failed to fetch responses')
+  return res.json()
+}
+
+export async function submitResponse(questionId: string, answer: string): Promise<Response> {
+  const res = await fetch('/api/responses', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ question_id: questionId, answer }),
+  })
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}))
+    throw new Error(body.error || 'Failed to submit response')
+  }
+  return res.json()
+}
