@@ -1,36 +1,23 @@
--- Run this in your Supabase project's SQL editor.
--- Project dashboard -> SQL Editor -> New Query -> paste this -> Run.
--- NOTE: if you already ran an older version of this schema, run the
--- relevant migration_*.sql file instead (adds new columns/categories
--- without dropping your existing tables/responses).
+-- Run this in your Supabase project's SQL editor if you already have the
+-- site deployed and want to switch to the new question bank (real
+-- multiple-choice answers, new "curiosity" category, completely new set
+-- of questions replacing the old one).
+--
+-- WARNING: this clears all existing questions AND responses, since the
+-- old questions no longer exist after this runs (responses reference
+-- question_id via foreign key, so they'd be orphaned otherwise). If you
+-- want to keep old answers, export them first.
 
-create table if not exists questions (
-  id uuid primary key default gen_random_uuid(),
-  text text not null,
-  category text not null check (category in ('fun', 'flirty', 'deep', 'curiosity')),
-  order_index int not null,
-  options jsonb default '[]'::jsonb,
-  created_at timestamptz default now()
-);
+-- 1. Widen the category constraint to allow the new 'curiosity' category.
+alter table questions drop constraint if exists questions_category_check;
+alter table questions add constraint questions_category_check
+  check (category in ('fun', 'flirty', 'deep', 'curiosity'));
 
-create table if not exists responses (
-  id uuid primary key default gen_random_uuid(),
-  question_id uuid not null references questions(id) on delete cascade,
-  answer text not null,
-  respondent text default 'anushka',
-  submitted_at timestamptz default now(),
-  updated_at timestamptz default now(),
-  constraint check_respondent check (respondent in ('smarak', 'anushka'))
-);
+-- 2. Clear old responses first (foreign key), then old questions.
+delete from responses;
+delete from questions;
 
-create index if not exists idx_responses_question_id on responses(question_id);
-create index if not exists idx_responses_submitted_at on responses(submitted_at desc);
-create index if not exists idx_responses_respondent on responses(respondent);
-
--- Seed questions (matches lib/constants.ts SEED_QUESTIONS).
--- Most fun/flirty/some-deep/some-curiosity questions are real multiple
--- choice now — tapping an option submits that exact text as the answer.
--- Questions with an empty options array are free-text only.
+-- 3. Insert the new question bank.
 insert into questions (text, category, order_index, options) values
 ('If we''re hanging out, what''s the first thing we''re doing?', 'fun', 1, '["☕ Finding a cute café","🏸 Something competitive","🎮 Gaming","🚗 Driving with music on"]'::jsonb),
 ('Which green flag makes you instantly smile?', 'fun', 2, '["Someone remembers little things","Good sense of humor","Effort without being asked","Kind to everyone"]'::jsonb),
@@ -68,16 +55,3 @@ insert into questions (text, category, order_index, options) values
 ('If you could change ONE thing about this website...', 'curiosity', 34, '[]'::jsonb),
 ('Be honest. Would you go on a first date with me based only on this website?', 'curiosity', 35, '["Absolutely","Probably","Maybe","I need more convincing 😌"]'::jsonb),
 ('What''s one thing you''re now curious to know about me?', 'curiosity', 36, '[]'::jsonb);
-
--- Row Level Security: this site is a single shared link, not a multi-user app,
--- so we keep RLS simple — public read on questions, public read+write on responses.
--- All writes actually go through the API routes using the service-role key,
--- so RLS here is a safety net, not the primary gate.
-alter table questions enable row level security;
-alter table responses enable row level security;
-
-create policy "Public can read questions" on questions
-  for select using (true);
-
-create policy "Public can read responses" on responses
-  for select using (true);

@@ -1,7 +1,7 @@
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { FlirtyCardStack } from '@/components/ui/flirty-card-stack'
-import { INTERESTS, PROJECTS, FLIRTY_LINES } from '@/lib/constants'
+import { INTERESTS, LITTLE_THINGS, LITTLE_THINGS_HEADING, FLIRTY_LINES } from '@/lib/constants'
 
 export function InterestsProjects() {
   return (
@@ -33,23 +33,19 @@ export function InterestsProjects() {
             </div>
           </div>
 
-          {/* Projects */}
+          {/* Little things — replaces the old "projects" column. This is
+              the personality stuff, not the résumé stuff. */}
           <div>
-            <h3 className="text-h3 text-ink-700 mb-5">projects</h3>
-            <div className="space-y-4">
-              {PROJECTS.map((project) => (
+            <h3 className="text-h3 text-ink-700 mb-5">{LITTLE_THINGS_HEADING}</h3>
+            <div className="space-y-3">
+              {LITTLE_THINGS.map((item, i) => (
                 <Card
-                  key={project.title}
+                  key={i}
                   className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-body text-ink-600 leading-relaxed">{project.description}</p>
-                    <span className="inline-block mt-3 text-sm font-medium text-pink-600">
-                      {project.status}
-                    </span>
+                  <CardContent className="flex items-start gap-3 py-4">
+                    <span className="text-xl leading-none mt-0.5">{item.emoji}</span>
+                    <p className="text-body text-ink-600 leading-relaxed">{item.text}</p>
                   </CardContent>
                 </Card>
               ))}

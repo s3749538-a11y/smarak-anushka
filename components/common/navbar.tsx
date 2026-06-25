@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { useAuth } from '@/lib/use-auth'
 
 const NAV_LINKS = [
   { label: 'about', href: '#about' },
@@ -9,6 +10,8 @@ const NAV_LINKS = [
 ]
 
 export function Navbar() {
+  const { logout } = useAuth()
+
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-ink-100">
       <nav className="container mx-auto px-4 max-w-5xl flex items-center justify-between h-16">
@@ -26,12 +29,20 @@ export function Navbar() {
             </a>
           ))}
         </div>
-        <Button
-          size="sm"
-          onClick={() => document.getElementById('discovery')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          let&apos;s start
-        </Button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={logout}
+            className="hidden sm:inline text-xs text-ink-300 hover:text-ink-500 transition-colors"
+          >
+            switch
+          </button>
+          <Button
+            size="sm"
+            onClick={() => document.getElementById('discovery')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            let&apos;s start
+          </Button>
+        </div>
       </nav>
     </header>
   )

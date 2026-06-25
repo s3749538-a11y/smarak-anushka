@@ -11,7 +11,7 @@ const MAX_ANSWER_LENGTH = 2000
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { question_id, answer } = body
+    const { question_id, answer, respondent = 'anushka' } = body
 
     if (!question_id || typeof question_id !== 'string') {
       return NextResponse.json({ error: 'Missing or invalid question_id' }, { status: 400 })
@@ -21,13 +21,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Answer cannot be empty' }, { status: 400 })
     }
 
+    if (!['smarak', 'anushka'].includes(respondent)) {
+      return NextResponse.json({ error: 'Invalid respondent' }, { status: 400 })
+    }
+
     const trimmedAnswer = answer.trim().slice(0, MAX_ANSWER_LENGTH)
 
-    // Upsert: if this question already has a response, update it instead of duplicating.
+    // Upsert: if this question already has a response from this respondent, update it.
     const { data: existing } = await supabase
       .from('responses')
       .select('id')
       .eq('question_id', question_id)
+      .eq('respondent', respondent)
       .maybeSingle()
 
     let data, error
@@ -42,7 +47,7 @@ export async function POST(request: NextRequest) {
     } else {
       ;({ data, error } = await supabase
         .from('responses')
-        .insert([{ question_id, answer: trimmedAnswer }])
+        .insert([{ question_id, answer: trimmedAnswer, respondent }])
         .select()
         .single())
     }

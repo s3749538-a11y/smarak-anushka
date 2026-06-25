@@ -3,16 +3,16 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import InkReveal from '@/components/ui/ink-reveal'
-import { Button } from '@/components/ui/button'
+import { IdentityPicker } from '@/components/ui/identity-picker'
 import { LANDING_COPY } from '@/lib/constants'
 
-export function Landing({ onEnter }: { onEnter: () => void }) {
+export function Landing({ onEnter }: { onEnter: (who: 'smarak' | 'anushka') => void }) {
   const [exiting, setExiting] = useState(false)
   const [revealed, setRevealed] = useState(false)
 
-  const handleEnter = () => {
+  const handleChoose = (who: 'smarak' | 'anushka') => {
     setExiting(true)
-    setTimeout(onEnter, 650)
+    setTimeout(() => onEnter(who), 650)
   }
 
   return (
@@ -72,7 +72,7 @@ export function Landing({ onEnter }: { onEnter: () => void }) {
               </div>
             </motion.div>
 
-            {/* CTA button — its own top layer, above the canvas, so it's
+            {/* Identity picker — its own top layer, above the canvas, so it's
                 always clickable once revealed regardless of canvas pointer capture */}
             <motion.div
               className="absolute inset-0 z-30 flex items-end justify-center pb-16 px-6 pointer-events-none"
@@ -81,19 +81,14 @@ export function Landing({ onEnter }: { onEnter: () => void }) {
               transition={{ duration: 0.5 }}
             >
               <div className="pointer-events-auto">
-                <Button
-                  onClick={handleEnter}
-                  withParticles
-                  className="bg-white text-pink-600 hover:bg-pink-50 hover:text-pink-700"
-                >
-                  {LANDING_COPY.cta}
-                </Button>
+                <IdentityPicker onChoose={handleChoose} />
               </div>
             </motion.div>
 
-            {/* Always-clickable skip link, for anyone who'd rather not scratch */}
+            {/* Always-clickable skip link, defaults to entering as Anushka
+                for anyone who'd rather not scratch */}
             <button
-              onClick={handleEnter}
+              onClick={() => handleChoose('anushka')}
               className="absolute bottom-5 right-5 z-30 text-sm text-white/60 hover:text-white transition-colors underline-offset-4 hover:underline drop-shadow-sm"
             >
               skip →

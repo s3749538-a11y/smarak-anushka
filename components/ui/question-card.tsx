@@ -9,6 +9,7 @@ const ACCENT_BAR: Record<string, string> = {
   fun: 'bg-amber-400',
   flirty: 'bg-blue-400',
   deep: 'bg-purple-400',
+  curiosity: 'bg-emerald-400',
 }
 
 interface QuestionCardProps {

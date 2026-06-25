@@ -24,24 +24,25 @@ export const LANDING_COPY = {
 
 export const HERO_COPY = {
   headline: "hey, i'm smarak.",
-  subheadline: 'learned guitar for you. made websites for you.',
-  subheadlineNote: '(okay, maybe this site is mostly for impressing you)',
+  subheadline: 'i make playlists that somehow fit every mood, remember weird little details, and will absolutely send you a picture of the sunset because it reminded me of you.',
+  subheadlineNote: "not trying to convince you i'm interesting. if you stick around, you'll probably decide that yourself.",
   body: [
-    '19 | bhubaneswar | code90 is my current obsession',
-    "i'm the kind of person who remembers small things about you and finds reasons to make you smile.",
-    "into coding, sports, music, and probably too much overthinking. but mostly i'm here because you're worth the effort.",
+    '19 | bhubaneswar | believes good conversations should never have a time limit',
+    "(this website is basically my excuse to say hi.)",
   ],
   ctaPrimary: "let's start",
-  ctaSecondary: 'ask me anything',
+  ctaSecondary: 'ask me something random',
 }
 
 export const ABOUT_COPY = {
   heading: 'who i actually am',
   paragraphs: [
-    "i'm 19, from bhubaneswar, currently studying data science at iter. sounds boring, but i'm genuinely obsessed with building things. right now, i'm doing code90 — 90 days of deep learning in dsa and ml. the goal? understand how things actually work, not just code them.",
-    "sports have always been my escape. cricket, badminton, basketball — if there's a court or field, you'll find me there sweating. it's where i think clearly, where stress just disappears.",
-    "but here's the thing that's different now: i picked up guitar. not because i had to. because someone made me want to learn. and that someone... might be reading this right now.",
-    "i'm the kind of person who notices small things. the way you laugh. what makes you tick. what makes you comfortable. i remember, and i use that. i make handmade gifts, plan surprises, and genuinely care about effort over flashiness. call it overthinking, i call it attention to detail.",
+    "i'm the kind of person who notices little things. when someone tells me their favorite snack once, i remember it. when a song reminds me of someone, i save it instead of sending it immediately.",
+    "i'll probably remember how you take your coffee before i remember your birthday.",
+    "i like quiet cafés, long walks that weren't planned, laughing at terrible jokes, and conversations where neither of us notices it's already 2am.",
+    "i'm competitive during sports, dramatic while watching F1, and surprisingly patient when teaching someone something. (also: 19, from bhubaneswar, studying data science — but that's the boring part.)",
+    "i believe effort is attractive. showing up is attractive. being kind when nobody's watching is attractive.",
+    "and if you're reading this... thanks for making it this far.",
   ],
 }
 
@@ -62,40 +63,59 @@ export const FLIRTY_LINES = [
 ]
 
 export const INTERESTS = [
-  { label: 'Data Structures & Algorithms', emoji: '🧠' },
-  { label: 'Machine Learning', emoji: '🤖' },
-  { label: 'Web Development', emoji: '💻' },
-  { label: 'Cricket', emoji: '🏏' },
-  { label: 'Basketball', emoji: '🏀' },
-  { label: 'Badminton', emoji: '🏸' },
-  { label: 'Gym & Fitness', emoji: '💪' },
-  { label: 'Guitar', emoji: '🎸' },
-  { label: 'Gaming', emoji: '🎮' },
-  { label: 'DIY Crafts', emoji: '✂️' },
+  { label: 'sunset enjoyer', emoji: '🌅' },
+  { label: 'playlist curator', emoji: '🎧' },
+  { label: 'random wikipedia rabbit holes', emoji: '📚' },
+  { label: 'midnight food enthusiast', emoji: '🍜' },
+  { label: 'badminton', emoji: '🏸' },
+  { label: 'cricket', emoji: '🏏' },
+  { label: 'learning guitar', emoji: '🎸' },
+  { label: 'movie nights', emoji: '🎬' },
+  { label: 'rainy weather', emoji: '🌧️' },
+  { label: 'taking pictures i never post', emoji: '📸' },
+  { label: 'making gifts', emoji: '🎁' },
+  { label: 'soft hoodies', emoji: '🧸' },
+  { label: 'spontaneous plans', emoji: '✈️' },
   { label: 'Olivia Rodrigo', emoji: '🎤' },
   { label: 'K-dramas', emoji: '📺' },
   { label: 'F1 — Team Lewis Hamilton', emoji: '🏎️' },
   { label: 'Football — Ronaldo for life', emoji: '⚽' },
 ]
 
-export const PROJECTS = [
-  {
-    title: 'Code90',
-    description:
-      'Building deep understanding of Data Structures, Machine Learning, and web fundamentals. Started June 18, 2026.',
-    status: 'In Progress',
-  },
-  {
-    title: 'This Website',
-    description:
-      "A two-way discovery tool. Because asking questions is better than guessing. Also, subtle flex.",
-    status: "You're looking at it right now",
-  },
-  {
-    title: 'Custom DIY Crafts',
-    description: 'Personalized gifts for people I care about. No mass production, only thought.',
-    status: 'Ongoing',
-  },
+export const LITTLE_THINGS_HEADING = 'little things that make me, me'
+
+export const LITTLE_THINGS = [
+  { emoji: '☕', text: 'Coffee tastes better after 9 PM.' },
+  { emoji: '🎵', text: "If I send you a song, I'm secretly hoping you'll think of me whenever it plays." },
+  { emoji: '🎁', text: 'Handmade gifts > expensive gifts.' },
+  { emoji: '📸', text: 'I take random photos of skies. No idea why. I just like remembering days.' },
+  { emoji: '🏸', text: "I'll probably challenge you to badminton. You'll probably win. I'll ask for a rematch anyway." },
+  { emoji: '🍟', text: "I will steal exactly one fry. It's tradition." },
+]
+
+export const FUN_FACTS_HEADING = "things you'll eventually find out anyway"
+
+export const FUN_FACTS = [
+  { title: 'I text back fast.', body: "Unless I'm asleep. Or deciding which emoji looks less awkward." },
+  { title: 'I laugh too much.', body: 'Even at my own jokes. Especially at my own jokes.' },
+  { title: "I can't hear one good song.", body: 'It immediately becomes a three-day obsession.' },
+  { title: 'I overthink texts.', body: 'Then send them anyway.' },
+  { title: 'If I care about you...', body: "you'll never have to wonder." },
+]
+
+// Playful little notes that surface as she scrolls deeper into the site —
+// rewards for sticking around, not a hard CTA every time.
+export const FLOATING_NOTES = [
+  "you're still here? that's kinda cute.",
+  'this is where most people stop scrolling.',
+  "i'm starting to think you're actually interested.",
+  "okay... now i'm curious about you.",
+  "you've officially unlocked the unnecessary facts section.",
+  "you're making this website feel appreciated.",
+  "careful. i'm going to assume you like me.",
+  'this scroll is getting suspicious.',
+  "you've reached the part where i'm rooting for you.",
+  'thanks for staying.',
 ]
 
 export const DISCOVERY_COPY = {
@@ -114,148 +134,287 @@ export const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   fun: 'fun',
   flirty: 'flirty',
   deep: 'deep',
+  curiosity: 'curiosity',
 }
 
 export const CATEGORY_EMOJI: Record<QuestionCategory, string> = {
   fun: '🎉',
   flirty: '😏',
   deep: '🌙',
+  curiosity: '👀',
 }
 
 export const CATEGORY_STYLES: Record<QuestionCategory, string> = {
   fun: 'bg-amber-50 text-amber-600 border border-amber-100',
   flirty: 'bg-blue-50 text-blue-600 border border-blue-100',
   deep: 'bg-purple-50 text-purple-600 border border-purple-100',
+  curiosity: 'bg-emerald-50 text-emerald-600 border border-emerald-100',
 }
 
 export const CATEGORY_GLOW: Record<QuestionCategory, string> = {
   fun: 'from-amber-100/60 via-transparent to-transparent',
   flirty: 'from-blue-100/60 via-transparent to-transparent',
   deep: 'from-purple-100/60 via-transparent to-transparent',
+  curiosity: 'from-emerald-100/60 via-transparent to-transparent',
 }
 
-// Fallback question bank — used only if Supabase isn't configured yet,
-// or as the source of truth for the seed SQL.
-// `options` are lighthearted, hypothetical "starter" answers shown in the
-// pop-up modal — purely for fun/inspo, never auto-submitted as her real answer.
+// Tiny reactions shown right after she picks a multiple-choice answer —
+// randomized per category so it feels alive rather than scripted per-option.
+export const ANSWER_REACTIONS: Record<QuestionCategory, string[]> = {
+  fun: [
+    "You're answering these awfully fast...",
+    'Interesting choice.',
+    "I would've guessed something else.",
+    "You're making this website worth building.",
+  ],
+  flirty: [
+    'Noted. I\u2019ll remember that.',
+    'Okay... that\u2019s cute.',
+    'Green flag.',
+    "That answer tells me more than you think.",
+  ],
+  deep: [
+    'I promise I\u2019m not judging... much.',
+    'That was either incredibly honest or incredibly strategic.',
+    "Okay... now I'm curious about you.",
+  ],
+  curiosity: [
+    "You're dangerously easy to talk to.",
+    'You just unlocked three more questions.',
+    "Okay... now I'm curious about you.",
+  ],
+}
+
+// Question bank — used as the source of truth for the seed SQL, and as a
+// fallback if Supabase isn't configured yet.
+// `options`, when present, ARE the real answer choices (not just inspo) —
+// tapping one submits that exact text as her answer. Questions with no
+// `options` are free-text only. Either way, a "type your own instead"
+// fallback is always available in the modal.
 export const SEED_QUESTIONS: {
   text: string
   category: QuestionCategory
   order_index: number
   options?: string[]
 }[] = [
+  // 🎉 Fun
   {
-    text: 'WWE or K-drama?',
+    text: "If we're hanging out, what's the first thing we're doing?",
     category: 'fun',
     order_index: 1,
-    options: ['WWE, obviously 💪', 'K-drama, don\u2019t @ me 😭', 'Both, why are we fighting'],
+    options: ['☕ Finding a cute café', '🏸 Something competitive', '🎮 Gaming', '🚗 Driving with music on'],
   },
   {
-    text: "What's your go-to comfort food?",
+    text: 'Which green flag makes you instantly smile?',
     category: 'fun',
     order_index: 2,
-    options: ['Anything with cheese 🧀', 'Maggi at 2am 🍜', 'Whatever mom\u2019s cooking'],
+    options: ['Someone remembers little things', 'Good sense of humor', 'Effort without being asked', 'Kind to everyone'],
   },
   {
-    text: 'Cats or dogs?',
+    text: 'Be honest... how long would you survive my playlist?',
     category: 'fun',
     order_index: 3,
-    options: ['Cats, no debate 🐱', 'Dogs, ride or die 🐶', 'Neither, I\u2019m a plant person 🌱'],
+    options: ['One song', '30 minutes', 'Give me the aux', "I'd steal it"],
   },
   {
-    text: 'If you could be in any Olivia Rodrigo music video, which one?',
+    text: "What's the most attractive hobby?",
     category: 'fun',
     order_index: 4,
-    options: ['drivers license, obviously 🚗', 'good 4 u, chaos era 🔥', 'vampire, full drama mode 🩸'],
+    options: ['🎸 Guitar', '📚 Reading', '🏃 Gym', '🎨 Making things'],
   },
   {
-    text: 'F1 or football — and don\u2019t say "both" to dodge the question 👀',
+    text: "What's your love language?",
     category: 'fun',
     order_index: 5,
-    options: ['F1, Hamilton or nothing 🏎️', 'Football, CR7 forever ⚽', 'Honestly couldn\u2019t care less 😅'],
+    options: ['Time', 'Acts of service', 'Physical affection', 'Words', 'Gifts'],
   },
   {
-    text: "What's your ideal first date with someone you actually like?",
-    category: 'flirty',
-    order_index: 6,
-    options: ['Late night drive + bad music 🚗🎶', 'Something low-key, just talking for hours ☕', 'Surprise me, I like chaos 😏'],
-  },
-  {
-    text: 'What do you notice first when you meet someone?',
-    category: 'flirty',
-    order_index: 7,
-    options: ['Their smile, every time 😊', 'How they treat people around them', 'Vibes honestly, can\u2019t explain it'],
-  },
-  {
-    text: 'What makes you blush? (be honest)',
-    category: 'flirty',
-    order_index: 8,
-    options: ['Unexpected compliments 🙈', 'Someone remembering small things about me', 'I don\u2019t blush, I intimidate 😎'],
-  },
-  {
-    text: 'If I could do ONE thing that would make you smile right now, what would it be?',
-    category: 'flirty',
-    order_index: 9,
-    options: ['Send a dumb meme rn 😂', 'Just text "thinking of you"', 'Show up with food, ngl 🍫'],
-  },
-  {
-    text: 'Do you believe in love at first sight, or does it grow over time?',
-    category: 'flirty',
-    order_index: 10,
-    options: ['Grows over time, slow burn 🌱', 'First sight is real, fight me 👀', 'Jury\u2019s still out, ask me later'],
-  },
-  {
-    text: 'What are you genuinely proud of about yourself?',
-    category: 'deep',
-    order_index: 11,
-    options: ['That I kept going even on bad days 🌙', 'How much I\u2019ve grown this year', 'Honestly still figuring that out'],
-  },
-  {
-    text: "What's something you've never told anyone, but kinda want to?",
-    category: 'deep',
-    order_index: 12,
-    options: ['It\u2019s a long story...', 'Maybe one day, not today 👀', 'You\u2019ll have to earn that one 😏'],
-  },
-  {
-    text: 'Where do you see yourself in 5 years? (career, life, relationships)',
-    category: 'deep',
-    order_index: 13,
-    options: ['Settled, doing work I actually love', 'Still figuring it out, and that\u2019s okay', 'Honestly hoping it includes good people around me'],
-  },
-  {
-    text: "What's the most important quality in someone you'd want to be close to?",
-    category: 'deep',
-    order_index: 14,
-    options: ['Honesty, even when it\u2019s inconvenient', 'Someone who actually listens', 'Effort — showing up, not just saying things'],
-  },
-  {
-    text: 'If you could change one thing about yourself, what would it be?',
-    category: 'deep',
-    order_index: 15,
-    options: ['I\u2019d overthink less, fr', 'Be more patient with myself', 'Nothing, I\u2019m a work in progress and that\u2019s fine'],
-  },
-  {
-    text: 'on a scale of 1-10, how much do you actually enjoy gaming with me?',
+    text: 'Pick one.',
     category: 'fun',
-    order_index: 16,
-    options: ['10/10, you carry me 🎮', '7/10, you\u2019re kinda competitive ngl', 'Honestly I just like the company 😌'],
+    order_index: 6,
+    options: ['Sunrise', 'Sunset', 'Rain', 'Night drives'],
   },
   {
-    text: 'what\u2019s one small thing i\u2019ve done that made you feel like i actually pay attention?',
+    text: 'Your toxic gaming trait?',
+    category: 'fun',
+    order_index: 7,
+    options: ['I blame lag', 'I get too competitive', 'I carry everyone', 'I rage quit'],
+  },
+  {
+    text: 'Which date sounds best?',
+    category: 'fun',
+    order_index: 8,
+    options: ['Mini golf', 'Bookstore', 'Arcade', 'Cooking together'],
+  },
+  {
+    text: 'Would you rather...',
+    category: 'fun',
+    order_index: 9,
+    options: ['Receive flowers', 'Receive playlists', 'Receive handwritten letters', 'Receive surprise food'],
+  },
+  {
+    text: "What's harder?",
+    category: 'fun',
+    order_index: 10,
+    options: ['Starting a conversation', 'Ending one', 'Saying goodbye', 'Admitting feelings'],
+  },
+
+  // 😊 Flirty
+  {
+    text: 'If I stole one fry...',
+    category: 'flirty',
+    order_index: 11,
+    options: [
+      "We're fighting",
+      'You can have it',
+      'Only one?',
+      "I'll steal yours too",
+    ],
+  },
+  {
+    text: 'If I remembered your coffee order after hearing it once...',
+    category: 'flirty',
+    order_index: 12,
+    options: ['Green flag', "That's adorable", 'Slightly concerning 😂', 'Marry me (joking... maybe)'],
+  },
+  {
+    text: 'What would make you blush fastest?',
+    category: 'flirty',
+    order_index: 13,
+    options: ['Eye contact', 'Genuine compliments', 'Being teased', 'Unexpected kindness'],
+  },
+  {
+    text: 'If I sent you a song...',
+    category: 'flirty',
+    order_index: 14,
+    options: ["I'd listen immediately", "I'd read the lyrics first", "I'd ask why this song", "I'd send one back"],
+  },
+  {
+    text: "What's more attractive?",
+    category: 'flirty',
+    order_index: 15,
+    options: ['Confidence', 'Kindness', 'Humor', 'Emotional intelligence'],
+  },
+  {
+    text: 'If we were watching a movie...',
+    category: 'flirty',
+    order_index: 16,
+    options: ['Holding hands', 'Talking through the movie', 'Stealing snacks', 'Falling asleep halfway'],
+  },
+  {
+    text: 'You get one compliment. What are you choosing?',
     category: 'flirty',
     order_index: 17,
-    options: ['You remembered something I mentioned once 🥹', 'You checked in without me asking', 'Still thinking of one, give me a sec 😏'],
+    options: ["\"You're cute.\"", "\"I'm proud of you.\"", '"I feel safe with you."', '"You make life lighter."'],
   },
   {
-    text: 'if i could learn one more thing just for you, what would it be?',
+    text: 'Would you rather someone...',
     category: 'flirty',
     order_index: 18,
-    options: ['Cooking my favorite dish 🍳', 'A language I like', 'Honestly the guitar was already a lot, slow down 😂'],
+    options: ['Remember small details', 'Plan cute surprises', 'Make you laugh constantly', 'Be your biggest supporter'],
   },
   {
-    text: "what's your honest take on where this could go?",
-    category: 'deep',
+    text: "What's the biggest green flag?",
+    category: 'flirty',
     order_index: 19,
-    options: ['Excited to see, no pressure 🌙', 'Taking it slow, but hopeful', 'Ask me again after this site impresses me more 😏'],
+    options: ['They keep their promises', 'They listen', 'They make time', 'They communicate'],
+  },
+  {
+    text: 'If I randomly said "I have something for you." Your first thought?',
+    category: 'flirty',
+    order_index: 20,
+    options: ['Food', 'Flowers', 'Handmade gift', 'Playlist'],
+  },
+
+  // 🌙 Deep
+  {
+    text: "What's something people misunderstand about you?",
+    category: 'deep',
+    order_index: 21,
+  },
+  {
+    text: "What's one thing you wish people noticed more?",
+    category: 'deep',
+    order_index: 22,
+    options: ['My effort', 'My humor', 'My kindness', 'The little things I do'],
+  },
+  {
+    text: 'Which scares you more?',
+    category: 'deep',
+    order_index: 23,
+    options: ['Being misunderstood', 'Losing someone', 'Never trying', 'Regret'],
+  },
+  {
+    text: "What's harder for you?",
+    category: 'deep',
+    order_index: 24,
+    options: ['Saying sorry', 'Saying "I miss you."', 'Saying "I need help."', 'Saying goodbye'],
+  },
+  {
+    text: 'When do you feel most like yourself?',
+    category: 'deep',
+    order_index: 25,
+    options: ['Alone', 'Around close friends', 'With family', 'Around someone I trust'],
+  },
+  {
+    text: "What's something that instantly makes someone unforgettable?",
+    category: 'deep',
+    order_index: 26,
+    options: ['Their laugh', 'Their kindness', 'Their curiosity', 'The way they make people feel'],
+  },
+  {
+    text: 'Which matters more?',
+    category: 'deep',
+    order_index: 27,
+    options: ['Chemistry', 'Timing', 'Effort', 'Communication'],
+  },
+  {
+    text: "Finish the sentence: \"I'll know I've found my person when...\"",
+    category: 'deep',
+    order_index: 28,
+  },
+  {
+    text: "What's your biggest green flag?",
+    category: 'deep',
+    order_index: 29,
+  },
+
+  // 👀 Curiosity
+  {
+    text: "What's one question you've always wanted to ask me?",
+    category: 'curiosity',
+    order_index: 30,
+  },
+  {
+    text: 'What do you think my biggest red flag is?',
+    category: 'curiosity',
+    order_index: 31,
+  },
+  {
+    text: 'Guess something about me.',
+    category: 'curiosity',
+    order_index: 32,
+  },
+  {
+    text: 'What section of this website surprised you the most?',
+    category: 'curiosity',
+    order_index: 33,
+    options: ['The writing', 'The questions', 'The playlists', 'Still deciding'],
+  },
+  {
+    text: 'If you could change ONE thing about this website...',
+    category: 'curiosity',
+    order_index: 34,
+  },
+  {
+    text: 'Be honest. Would you go on a first date with me based only on this website?',
+    category: 'curiosity',
+    order_index: 35,
+    options: ['Absolutely', 'Probably', 'Maybe', 'I need more convincing 😌'],
+  },
+  {
+    text: "What's one thing you're now curious to know about me?",
+    category: 'curiosity',
+    order_index: 36,
   },
 ]

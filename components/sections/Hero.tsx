@@ -29,12 +29,19 @@ export function Hero() {
           {/* Copy */}
           <div className="order-1 md:order-2 animate-fade-in-right text-center md:text-left">
             <h1 className="font-display text-h1 text-ink-900 italic">{HERO_COPY.headline}</h1>
-            <p className="mt-3 text-h3 text-ink-700">{HERO_COPY.subheadline}</p>
-            <p className="mt-1 text-body text-ink-400">{HERO_COPY.subheadlineNote}</p>
+            <p className="mt-4 text-body text-ink-700 leading-relaxed">{HERO_COPY.subheadline}</p>
+            <p className="mt-3 text-body text-ink-600 leading-relaxed">{HERO_COPY.subheadlineNote}</p>
 
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 space-y-2">
               {HERO_COPY.body.map((line, i) => (
-                <p key={i} className="text-body text-ink-600 leading-relaxed">
+                <p
+                  key={i}
+                  className={
+                    i === HERO_COPY.body.length - 1
+                      ? 'text-sm text-ink-400 italic'
+                      : 'text-body text-ink-600 leading-relaxed'
+                  }
+                >
                   {line}
                 </p>
               ))}
@@ -42,13 +49,13 @@ export function Hero() {
 
             <div className="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
               <Button
-                onClick={() => document.getElementById('discovery')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {HERO_COPY.ctaPrimary}
               </Button>
               <Button
                 variant="outline"
-                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('discovery')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {HERO_COPY.ctaSecondary}
               </Button>

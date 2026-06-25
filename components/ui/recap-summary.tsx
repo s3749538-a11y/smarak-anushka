@@ -9,29 +9,32 @@ interface RecapSummaryProps {
   responses: Record<string, Response>
 }
 
-const CATEGORY_ORDER: QuestionCategory[] = ['fun', 'flirty', 'deep']
+const CATEGORY_ORDER: QuestionCategory[] = ['fun', 'flirty', 'deep', 'curiosity']
 
 export function RecapSummary({ questions, responses }: RecapSummaryProps) {
   const questionById = new Map(questions.map((q) => [q.id, q]))
   const answered = Object.values(responses)
 
   // Category breakdown — how many of each type she actually opened.
-  const counts: Record<QuestionCategory, number> = { fun: 0, flirty: 0, deep: 0 }
+  const counts: Record<QuestionCategory, number> = { fun: 0, flirty: 0, deep: 0, curiosity: 0 }
   answered.forEach((r) => {
     const q = questionById.get(r.question_id)
     if (q) counts[q.category]++
   })
 
-  // Highlights: the two longest answers from flirty/deep questions (a decent
-  // proxy for "she put real thought into this"), falling back to any answer
-  // if those categories are too sparse to have two.
+  // Highlights: prioritize free-text answers (questions with no options) —
+  // those are where she actually wrote something in her own words, which
+  // carries more signal now that most fun/flirty questions are quick
+  // multiple-choice picks. Falls back to deep/curiosity picks if there
+  // aren't enough free-text answers yet.
   const withQuestion = answered
     .map((r) => ({ response: r, question: questionById.get(r.question_id) }))
     .filter((x): x is { response: Response; question: Question } => !!x.question)
 
   const weighted = [...withQuestion].sort((a, b) => {
-    const aWeight = a.question.category !== 'fun' ? 1 : 0
-    const bWeight = b.question.category !== 'fun' ? 1 : 0
+    const isFreeText = (x: typeof a) => !x.question.options || x.question.options.length === 0
+    const aWeight = isFreeText(a) ? 2 : a.question.category !== 'fun' ? 1 : 0
+    const bWeight = isFreeText(b) ? 2 : b.question.category !== 'fun' ? 1 : 0
     if (aWeight !== bWeight) return bWeight - aWeight
     return b.response.answer.length - a.response.answer.length
   })
@@ -47,7 +50,7 @@ export function RecapSummary({ questions, responses }: RecapSummaryProps) {
       <p className="text-sm text-ink-400 mb-6">based on what you&apos;ve told me so far</p>
 
       {/* Category stats */}
-      <div className="grid grid-cols-3 gap-3 mb-7">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-7">
         {CATEGORY_ORDER.map((cat) => (
           <div
             key={cat}
@@ -55,7 +58,7 @@ export function RecapSummary({ questions, responses }: RecapSummaryProps) {
           >
             <span className="text-2xl mb-1">{CATEGORY_EMOJI[cat]}</span>
             <span className="font-display text-h3 text-pink-600">{counts[cat]}</span>
-            <span className="text-sm text-ink-400">{CATEGORY_LABELS[cat]}</span>
+            <span className="text-xs sm:text-sm text-ink-400">{CATEGORY_LABELS[cat]}</span>
           </div>
         ))}
       </div>
